@@ -23,7 +23,7 @@ class MemeEditorViewController: UIViewController {
     
     // MARK: Variables/Constants
     
-    private var imageMeme: UIImage?
+    //private var imageMeme: UIImage?
     private var fontName = "Impact"
     
     
@@ -59,13 +59,17 @@ class MemeEditorViewController: UIViewController {
     }
     
     @IBAction func shareMeme(_ sender: UIBarButtonItem) {
-        imageMeme = generateMemedImage()
         
-        let activityController = UIActivityViewController(activityItems: [imageMeme!], applicationActivities: nil)
-        activityController.completionWithItemsHandler = { [self] (_, completed, _, _) in
-            if completed {
-                self.save(self.imageMeme!)
+        let imageMeme = generateMemedImage()
+        let activityController = UIActivityViewController(activityItems: [imageMeme], applicationActivities: nil)
+        activityController.isModalInPresentation = true
+        activityController.completionWithItemsHandler = { (activityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) in
+            if completed == true {
+                print("Service completed successfully")
+                self.save(imageMeme)
                 self.dismiss(animated: true, completion: nil)
+            }else {
+                print("Service was cancelled")
             }
         }
         
@@ -105,9 +109,7 @@ class MemeEditorViewController: UIViewController {
         let meme = Meme(topText: textFieldTop.text!, bottomText: textFieldBottom.text!, originalImage: imagePickerView.image!, memedImage: memedImage)
         
         // Add it to the memes array in the Application Delegate
-        let object = UIApplication.shared.delegate
-        let appDelegate = object as! AppDelegate
-        appDelegate.memes.append(meme)
+        (UIApplication.shared.delegate as! AppDelegate).memes.append(meme)
     }
     
     // The action sheet dialog for change the font

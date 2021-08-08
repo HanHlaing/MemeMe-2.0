@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "30A6C522-E82A-4B7C-AC66-1DD0D026BC52"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8216F710-1635-47D5-8B7D-8DA02765E85D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MemeMe-2.0/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "AppDelegate"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "8216F710-1635-47D5-8B7D-8DA02765E85D - 216d19083fef66dc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MemeMe_2_0.AppDelegate.memes.getter : Swift.Array&lt;MemeMe_2_0.Meme&gt;"
+                  moduleName = "MemeMe-2.0"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/UdacityCourse/ExcerciseProjects/MemeMe-2.0/MemeMe-2.0/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "122">
+               </Location>
+               <Location
+                  uuid = "8216F710-1635-47D5-8B7D-8DA02765E85D - a60c8a92331ff698"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MemeMe_2_0.AppDelegate.memes.setter : Swift.Array&lt;MemeMe_2_0.Meme&gt;"
+                  moduleName = "MemeMe-2.0"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/UdacityCourse/ExcerciseProjects/MemeMe-2.0/MemeMe-2.0/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "148">
+               </Location>
+               <Location
+                  uuid = "8216F710-1635-47D5-8B7D-8DA02765E85D - a03c88ae6962b31d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MemeMe_2_0.AppDelegate.memes.modify : Swift.Array&lt;MemeMe_2_0.Meme&gt;"
+                  moduleName = "MemeMe-2.0"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/UdacityCourse/ExcerciseProjects/MemeMe-2.0/MemeMe-2.0/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "18">
+               </Location>
+               <Location
+                  uuid = "8216F710-1635-47D5-8B7D-8DA02765E85D - 61399979bc36964e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MemeMe_2_0.AppDelegate.memes.modify : Swift.Array&lt;MemeMe_2_0.Meme&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "MemeMe-2.0"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/UdacityCourse/ExcerciseProjects/MemeMe-2.0/MemeMe-2.0/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "8">
+               </Location>
+               <Location
+                  uuid = "8216F710-1635-47D5-8B7D-8DA02765E85D - 25fdf43b5305a547"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MemeMe_2_0.AppDelegate.init() -&gt; MemeMe_2_0.AppDelegate"
+                  moduleName = "MemeMe-2.0"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/UdacityCourse/ExcerciseProjects/MemeMe-2.0/MemeMe-2.0/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "44">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F193CF25-3EC3-4A67-A89E-834E7EE33D1B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MemeMe-2.0/Controllers/MemeEditorViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "shareMeme(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
