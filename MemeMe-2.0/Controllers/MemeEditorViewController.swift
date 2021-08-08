@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 class MemeEditorViewController: UIViewController {
-
+    
     // MARK: Outlets
     
     @IBOutlet weak var imagePickerView: UIImageView!
@@ -36,13 +36,13 @@ class MemeEditorViewController: UIViewController {
         btnShare.isEnabled = false
         setUpText()
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         btnCamera.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
         subscribeToKeyboardNotifications()
     }
-
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         unsubscribeFromKeyboardNotifications()
@@ -85,6 +85,31 @@ class MemeEditorViewController: UIViewController {
     
     //MARK: Private methods
     
+    // Generate the meme image by UI Graphics Image Context
+    func generateMemedImage() -> UIImage {
+        hideToolbarAndNavigationBar(hidden: true)
+        // Render view to an image
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
+        let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        
+        hideToolbarAndNavigationBar(hidden: false)
+        
+        return memedImage
+    }
+    
+    // Save the meme struct
+    func save(_ memedImage: UIImage) {
+        // Create the meme
+        let meme = Meme(topText: textFieldTop.text!, bottomText: textFieldBottom.text!, originalImage: imagePickerView.image!, memedImage: memedImage)
+        
+        // Add it to the memes array in the Application Delegate
+        let object = UIApplication.shared.delegate
+        let appDelegate = object as! AppDelegate
+        appDelegate.memes.append(meme)
+    }
+    
     // The action sheet dialog for change the font
     func showFontActionSheet() {
         
@@ -106,7 +131,7 @@ class MemeEditorViewController: UIViewController {
         }
         
         let cancelAction = UIAlertAction(title: "Cancel",
-                                     style: .cancel) { _ in
+                                         style: .cancel) { _ in
             self.dismiss(animated: true, completion: nil)
         }
         
@@ -116,7 +141,7 @@ class MemeEditorViewController: UIViewController {
     
     // Setup the two text fields
     func setUpText() {
-    
+        
         setupTextField(textFieldTop, text: "TOP")
         setupTextField(textFieldBottom, text: "BOTTOM")
     }
@@ -142,35 +167,16 @@ class MemeEditorViewController: UIViewController {
         navigationBar.isHidden = hidden
     }
     
-    // Generate the meme image by UI Graphics Image Context
-    func generateMemedImage() -> UIImage {
-        hideToolbarAndNavigationBar(hidden: true)
-        // Render view to an image
-        UIGraphicsBeginImageContext(self.view.frame.size)
-        view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
-        let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
-        UIGraphicsEndImageContext()
-
-        hideToolbarAndNavigationBar(hidden: false)
-        
-        return memedImage
-    }
-    
-    // Save the meme struct
-    func save(_ memedImage: UIImage) {
-            // Create the meme
-        _ = Meme(topText: textFieldTop.text!, bottomText: textFieldBottom.text!, originalImage: imagePickerView.image!, memedImage: memedImage)
-    }
     
     // Pick the image based on source
-     private func pickAnImage(source: UIImagePickerController.SourceType) {
+    private func pickAnImage(source: UIImagePickerController.SourceType) {
         
-            let pickerController = UIImagePickerController()
-            pickerController.delegate = self
-            pickerController.sourceType = source
-            pickerController.allowsEditing = true
-            present(pickerController, animated: true, completion: nil)
-        }
+        let pickerController = UIImagePickerController()
+        pickerController.delegate = self
+        pickerController.sourceType = source
+        pickerController.allowsEditing = true
+        present(pickerController, animated: true, completion: nil)
+    }
     
     // Add the notification observer and call this when controller appears
     func subscribeToKeyboardNotifications(){
@@ -195,7 +201,7 @@ class MemeEditorViewController: UIViewController {
     
     // Set the view origin y after hiding keyboard
     @objc func keyboardWillHide(_ notification:Notification) {
-          view.frame.origin.y = 0
+        view.frame.origin.y = 0
     }
     
     // Getting the keyboard hight
