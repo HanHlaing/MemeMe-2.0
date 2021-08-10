@@ -72,6 +72,35 @@
             </objects>
             <point key="canvasLocation" x="457.97101449275368" y="423.88392857142856"/>
         </scene>
+        <!--Meme Detail View Controller-->
+        <scene sceneID="yKZ-L6-6oy">
+            <objects>
+                <viewController storyboardIdentifier="MemeDetailViewController" id="dIc-vZ-Hj4" customClass="MemeDetailViewController" customModule="MemeMe_2_0" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yHa-Hp-K5W">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Q7D-B6-WeL">
+                                <rect key="frame" x="0.0" y="301" width="414" height="368"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Fr-Z1-TnQ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Fr-Z1-TnQ" firstAttribute="bottom" secondItem="Q7D-B6-WeL" secondAttribute="bottom" constant="193" id="M3q-0A-2Lu"/>
+                            <constraint firstItem="Q7D-B6-WeL" firstAttribute="leading" secondItem="6Fr-Z1-TnQ" secondAttribute="leading" id="ZPu-v2-hCA"/>
+                            <constraint firstItem="6Fr-Z1-TnQ" firstAttribute="trailing" secondItem="Q7D-B6-WeL" secondAttribute="trailing" id="cOP-no-saC"/>
+                            <constraint firstItem="Q7D-B6-WeL" firstAttribute="top" secondItem="6Fr-Z1-TnQ" secondAttribute="top" constant="257" id="y2D-FB-GNf"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageViewMeme" destination="Q7D-B6-WeL" id="8UA-bg-KV4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wDF-pD-bZD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1615.9420289855075" y="353.57142857142856"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="atD-8e-tNE">
             <objects>

@@ -23,7 +23,7 @@ class MemeEditorViewController: UIViewController {
     
     // MARK: Variables/Constants
     
-    //private var imageMeme: UIImage?
+    var memeIndex: Int!
     private var fontName = "Impact"
     
     

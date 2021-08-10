@@ -11,7 +11,6 @@ class MemeTableViewController: UITableViewController {
     
     // MARK: Variables/Constants
     
-    private let reuseIdentifier = "MemeTableViewCell"
     var memes: [Meme]! {
         return (UIApplication.shared.delegate as! AppDelegate).memes
     }
@@ -29,7 +28,7 @@ class MemeTableViewController: UITableViewController {
     // MARK: Actions
     
     @IBAction func openMemeEditor(_ sender: Any) {
-        let memeEditorController = self.storyboard!.instantiateViewController(withIdentifier: "MemeEditorViewController") as! MemeEditorViewController
+        let memeEditorController = self.storyboard!.instantiateViewController(withIdentifier: Identifier.memeEditor.rawValue) as! MemeEditorViewController
         // Present the MemeEditorViewController using code
         present(memeEditorController, animated: true, completion: nil)
     }
@@ -41,7 +40,7 @@ class MemeTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier) as! MemeTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: Identifier.memeTableCell.rawValue) as! MemeTableViewCell
         if !memes.isEmpty {
             let meme = memes[(indexPath as NSIndexPath).row]
             cell.lblMemeText.text = meme.topText + " ... " + meme.bottomText
@@ -50,4 +49,9 @@ class MemeTableViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let memeDetailViewController = storyboard!.instantiateViewController(withIdentifier: Identifier.memeDetail.rawValue) as! MemeDetailViewController
+        memeDetailViewController.memeIndex = (indexPath as NSIndexPath).row
+        navigationController!.pushViewController(memeDetailViewController, animated: true)
+    }
 }

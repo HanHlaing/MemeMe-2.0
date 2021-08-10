@@ -14,12 +14,8 @@ class MemeCollectionViewController: UICollectionViewController {
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     
     // MARK: Variables/Constants
-    
-    private let reuseIdentifier = "MemeCollectionViewCell"
     var memes: [Meme]! {
-        let object = UIApplication.shared.delegate
-        let appDelegate = object as! AppDelegate
-        return appDelegate.memes
+        return (UIApplication.shared.delegate as! AppDelegate).memes
     }
     
     // MARK: Lifecycle methods
@@ -41,7 +37,7 @@ class MemeCollectionViewController: UICollectionViewController {
     
     @IBAction func openMemeEditor(_ sender: Any) {
         
-        let memeEditorController = self.storyboard!.instantiateViewController(withIdentifier: "MemeEditorViewController") as! MemeEditorViewController
+        let memeEditorController = self.storyboard!.instantiateViewController(withIdentifier: Identifier.memeEditor.rawValue) as! MemeEditorViewController
         
         // Present the MemeEditorViewController using code
         present(memeEditorController, animated: true, completion: nil)
@@ -82,7 +78,7 @@ class MemeCollectionViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! MemeCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Identifier.memeCollectionCell.rawValue, for: indexPath) as! MemeCollectionViewCell
         
         if !memes.isEmpty {
             let meme = memes[(indexPath as NSIndexPath).row]
@@ -90,6 +86,12 @@ class MemeCollectionViewController: UICollectionViewController {
         }
         
         return cell
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let memeDetailController = self.storyboard!.instantiateViewController(withIdentifier: Identifier.memeDetail.rawValue) as! MemeDetailViewController
+        memeDetailController.memeIndex = (indexPath as NSIndexPath).row
+        self.navigationController!.pushViewController(memeDetailController, animated: true)
     }
     
 }
