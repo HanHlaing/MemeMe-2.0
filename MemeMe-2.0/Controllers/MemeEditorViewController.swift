@@ -81,6 +81,7 @@ class MemeEditorViewController: UIViewController {
         imagePickerView.image = nil
         btnShare.isEnabled = false
         setUpText()
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func changeFontStyle(_ sender: Any) {
