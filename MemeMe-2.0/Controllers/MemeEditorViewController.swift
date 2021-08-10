@@ -169,7 +169,6 @@ class MemeEditorViewController: UIViewController {
         navigationBar.isHidden = hidden
     }
     
-    
     // Pick the image based on source
     private func pickAnImage(source: UIImagePickerController.SourceType) {
         

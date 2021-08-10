@@ -11,22 +11,26 @@ class MemeTableViewController: UITableViewController {
     
     // MARK: Variables/Constants
     
+    private let reuseIdentifier = "MemeTableViewCell"
     var memes: [Meme]! {
-        let object = UIApplication.shared.delegate
-        let appDelegate = object as! AppDelegate
-        return appDelegate.memes
+        return (UIApplication.shared.delegate as! AppDelegate).memes
     }
     
     // MARK: Lifecycle methods
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        // Reload table view to update changes
         tableView!.reloadData()
+        // Set table view row height
         tableView!.rowHeight = 100
     }
     
+    // MARK: Actions
+    
     @IBAction func openMemeEditor(_ sender: Any) {
         let memeEditorController = self.storyboard!.instantiateViewController(withIdentifier: "MemeEditorViewController") as! MemeEditorViewController
+        // Present the MemeEditorViewController using code
         present(memeEditorController, animated: true, completion: nil)
     }
     
@@ -37,7 +41,7 @@ class MemeTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MemeTableViewCell") as! MemeTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier) as! MemeTableViewCell
         if !memes.isEmpty {
             let meme = memes[(indexPath as NSIndexPath).row]
             cell.lblMemeText.text = meme.topText + " ... " + meme.bottomText
@@ -45,6 +49,5 @@ class MemeTableViewController: UITableViewController {
         }
         return cell
     }
-    
     
 }

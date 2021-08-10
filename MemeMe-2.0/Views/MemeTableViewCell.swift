@@ -9,6 +9,8 @@ import UIKit
 
 class MemeTableViewCell: UITableViewCell {
 
+    // MARK: Outlets
+    
     @IBOutlet weak var imageViewMeme: UIImageView!
     @IBOutlet weak var lblMemeText: UILabel!
 
