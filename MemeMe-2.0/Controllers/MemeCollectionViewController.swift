@@ -73,10 +73,12 @@ class MemeCollectionViewController: UICollectionViewController {
     
     // MARK: UICollectionViewDataSource
     
+    // Collection view cell count
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return memes.count
     }
     
+    // Bind data to collection view cells
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Identifier.memeCollectionCell.rawValue, for: indexPath) as! MemeCollectionViewCell
         
@@ -88,6 +90,7 @@ class MemeCollectionViewController: UICollectionViewController {
         return cell
     }
     
+    // Select cell and go to meme detail
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let memeDetailController = self.storyboard!.instantiateViewController(withIdentifier: Identifier.memeDetail.rawValue) as! MemeDetailViewController
         memeDetailController.memeIndex = (indexPath as NSIndexPath).row

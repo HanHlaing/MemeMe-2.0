@@ -35,10 +35,12 @@ class MemeTableViewController: UITableViewController {
     
     // MARK: TableViewController Delegate methods
     
+    // Table row count
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return memes.count
     }
     
+    // Bind data to table view cells
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Identifier.memeTableCell.rawValue) as! MemeTableViewCell
         if !memes.isEmpty {
@@ -49,9 +51,18 @@ class MemeTableViewController: UITableViewController {
         return cell
     }
     
+    // Select cell and go to meme detail
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let memeDetailViewController = storyboard!.instantiateViewController(withIdentifier: Identifier.memeDetail.rawValue) as! MemeDetailViewController
         memeDetailViewController.memeIndex = (indexPath as NSIndexPath).row
         navigationController!.pushViewController(memeDetailViewController, animated: true)
+    }
+    
+    // Swipe to delete row
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            (UIApplication.shared.delegate as! AppDelegate).memes.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
     }
 }
