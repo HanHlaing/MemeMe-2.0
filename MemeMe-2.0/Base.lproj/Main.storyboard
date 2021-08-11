@@ -81,10 +81,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Q7D-B6-WeL">
-                                <rect key="frame" x="19.5" y="298" width="375" height="300"/>
+                                <rect key="frame" x="7" y="298" width="400" height="300"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="1jh-a0-lqT"/>
-                                    <constraint firstAttribute="width" constant="375" id="5ho-CJ-RoA"/>
+                                    <constraint firstAttribute="width" constant="400" id="5ho-CJ-RoA"/>
                                 </constraints>
                             </imageView>
                         </subviews>
@@ -164,14 +164,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3tf-t4-87D">
-                                <rect key="frame" x="19.5" y="298" width="375" height="300"/>
+                                <rect key="frame" x="7" y="298" width="400" height="300"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="375" id="5DG-M2-t7i"/>
+                                    <constraint firstAttribute="width" constant="400" id="5DG-M2-t7i"/>
                                     <constraint firstAttribute="height" constant="300" id="Y72-i9-vFG"/>
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fPM-gj-kx4">
-                                <rect key="frame" x="19.5" y="318" width="375" height="52"/>
+                                <rect key="frame" x="7" y="318" width="400" height="52"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="52" id="qvD-3z-UCs"/>
                                 </constraints>
@@ -179,7 +179,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOTTOM" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="flI-NA-n2v">
-                                <rect key="frame" x="19.5" y="526" width="375" height="52"/>
+                                <rect key="frame" x="7" y="526" width="400" height="52"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="52" id="DfN-1z-jzC"/>
                                 </constraints>
@@ -236,14 +236,14 @@
                             <constraint firstAttribute="trailing" secondItem="i8U-lp-f2b" secondAttribute="trailing" id="46s-CK-Bz6"/>
                             <constraint firstItem="flI-NA-n2v" firstAttribute="leading" secondItem="3tf-t4-87D" secondAttribute="leading" id="8gO-0Y-UtY"/>
                             <constraint firstItem="i8U-lp-f2b" firstAttribute="top" secondItem="biD-hG-JaP" secondAttribute="top" id="9U4-gG-a0x"/>
-                            <constraint firstItem="biD-hG-JaP" firstAttribute="trailing" secondItem="XDQ-6A-96e" secondAttribute="trailing" id="9n5-r4-kTn"/>
+                            <constraint firstItem="XDQ-6A-96e" firstAttribute="trailing" secondItem="1Jh-kt-eqt" secondAttribute="trailing" id="9n5-r4-kTn"/>
                             <constraint firstItem="3tf-t4-87D" firstAttribute="top" relation="greaterThanOrEqual" secondItem="i8U-lp-f2b" secondAttribute="bottom" id="Auq-OX-C7G"/>
                             <constraint firstItem="3tf-t4-87D" firstAttribute="centerX" secondItem="1Jh-kt-eqt" secondAttribute="centerX" id="DgX-L3-GGN"/>
                             <constraint firstItem="3tf-t4-87D" firstAttribute="top" secondItem="fPM-gj-kx4" secondAttribute="top" constant="-20" id="FDB-Eh-hYD"/>
                             <constraint firstItem="fPM-gj-kx4" firstAttribute="leading" secondItem="3tf-t4-87D" secondAttribute="leading" id="Gre-8Y-bzU"/>
                             <constraint firstItem="3tf-t4-87D" firstAttribute="bottom" secondItem="flI-NA-n2v" secondAttribute="bottom" constant="20" id="JFF-2z-XLX"/>
                             <constraint firstItem="flI-NA-n2v" firstAttribute="centerX" secondItem="1Jh-kt-eqt" secondAttribute="centerX" id="KIP-Ar-1Kk"/>
-                            <constraint firstItem="XDQ-6A-96e" firstAttribute="leading" secondItem="biD-hG-JaP" secondAttribute="leading" id="L7r-T8-cd0"/>
+                            <constraint firstItem="XDQ-6A-96e" firstAttribute="leading" secondItem="1Jh-kt-eqt" secondAttribute="leading" id="L7r-T8-cd0"/>
                             <constraint firstItem="3tf-t4-87D" firstAttribute="centerY" secondItem="1Jh-kt-eqt" secondAttribute="centerY" id="MLv-Zz-1vU"/>
                             <constraint firstItem="XDQ-6A-96e" firstAttribute="bottom" secondItem="biD-hG-JaP" secondAttribute="bottom" id="dWZ-Lt-iCS"/>
                             <constraint firstItem="fPM-gj-kx4" firstAttribute="centerX" secondItem="1Jh-kt-eqt" secondAttribute="centerX" id="fDG-Rh-13N"/>
