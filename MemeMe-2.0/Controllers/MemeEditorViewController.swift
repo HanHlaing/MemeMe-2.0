@@ -24,8 +24,8 @@ class MemeEditorViewController: UIViewController {
     // MARK: Variables/Constants
     
     var memeIndex: Int!
+    var meme: Meme! = nil
     private var fontName = "Impact"
-    
     
     // MARK: Lifecycle methods
     
@@ -35,6 +35,9 @@ class MemeEditorViewController: UIViewController {
         
         btnShare.isEnabled = false
         setUpText()
+        if let memeIndex = memeIndex {
+            loadMeme(index: memeIndex)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -90,15 +93,23 @@ class MemeEditorViewController: UIViewController {
     
     //MARK: Private methods
     
+    func loadMeme(index: Int) {
+        meme = (UIApplication.shared.delegate as! AppDelegate).memes[index]
+        btnShare.isEnabled = true
+        textFieldTop.text = meme.topText
+        textFieldBottom.text = meme.bottomText
+        imagePickerView.image = meme.originalImage
+    }
+    
     // Generate the meme image by UI Graphics Image Context
     func generateMemedImage() -> UIImage {
+        
         hideToolbarAndNavigationBar(hidden: true)
         // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
         view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
         let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
-        
         hideToolbarAndNavigationBar(hidden: false)
         
         return memedImage
@@ -107,10 +118,14 @@ class MemeEditorViewController: UIViewController {
     // Save the meme struct
     func save(_ memedImage: UIImage) {
         // Create the meme
-        let meme = Meme(topText: textFieldTop.text!, bottomText: textFieldBottom.text!, originalImage: imagePickerView.image!, memedImage: memedImage)
+        meme = Meme(topText: textFieldTop.text!, bottomText: textFieldBottom.text!, originalImage: imagePickerView.image!, memedImage: memedImage)
         
         // Add it to the memes array in the Application Delegate
-        (UIApplication.shared.delegate as! AppDelegate).memes.append(meme)
+        if let memeIndex = memeIndex {
+            (UIApplication.shared.delegate as! AppDelegate).memes[memeIndex] = meme
+        } else {
+            (UIApplication.shared.delegate as! AppDelegate).memes.append(meme)
+        }
     }
     
     // The action sheet dialog for change the font
